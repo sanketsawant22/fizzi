@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+/* Custom Font */
+:root {
+  --font-alpino: "Alpino", sans-serif;
+}
+
+/* Custom Animations */
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Apply Custom Animations */
+.animate-slide-left {
+  animation: slide-left 3s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
