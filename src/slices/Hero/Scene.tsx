@@ -8,7 +8,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { useRef } from "react";
 import { Group } from "three";
-import { pid } from "process";
+
+import { useStore } from "@/hooks/useStore";
 
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
@@ -16,6 +17,9 @@ gsap.registerPlugin(ScrollTrigger);
 type Props = {};
 
 function Scene({}: Props) {
+
+  const isReady = useStore((state) => state.isReady)
+
   const can1ref = useRef<Group>(null);
   const can2ref = useRef<Group>(null);
   const can3ref = useRef<Group>(null);
@@ -44,6 +48,8 @@ function Scene({}: Props) {
     ) {
       return;
     }
+
+    isReady();
 
     // set cans start loation above view port
     gsap.set(can1ref.current.position, { x: -1.5 });
