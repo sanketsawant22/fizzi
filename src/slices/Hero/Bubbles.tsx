@@ -13,7 +13,7 @@ export function Bubbles({
   count = 200,
   speed = 5,
   bubbleSize = 0.05,
-  opacity = 0.5,
+  opacity = 0.75,
   repeat = true,
 }) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
