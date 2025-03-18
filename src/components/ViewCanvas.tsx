@@ -36,23 +36,36 @@ export default function ViewCanvas() {
       </Canvas>
       <Loader
         containerStyles={{
-          backgroundColor: "rgba(0, 0, 0, 0.9)",
+          backgroundColor: "rgba(0, 0, 0, 0.95)",
           position: "fixed",
           top: 0,
           left: 0,
           width: "100vw",
           height: "100vh",
           zIndex: 99999,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          backdropFilter: "blur(5px)",
         }}
         dataStyles={{
           color: "#ffffff",
-          fontSize: "20px",
+          fontSize: "18px",
           fontFamily: "var(--font-alpino)",
+          letterSpacing: "3px",
+          textTransform: "uppercase",
+          marginTop: "20px",
+          textShadow: "0 0 10px rgba(0, 255, 0, 0.7)",
         }}
         innerStyles={{
           backgroundColor: "#00ff00",
-          height: "5px",
-          boxShadow: "0 0 10px #00ff00",
+          height: "4px",
+          boxShadow: "0 0 15px #00ff00, 0 0 30px #00ff00",
+          borderRadius: "2px",
+          animation: "pulse 1.5s infinite",
+          width: "300px",
+          maxWidth: "80vw",
         }}
       />
     </>
