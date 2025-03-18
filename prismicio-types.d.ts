@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = SkyDiveSlice | HeroSlice;
+type PageDocumentDataSlicesSlice = CarauselSlice | SkyDiveSlice | HeroSlice;
 
 /**
  * Content for Page documents
@@ -77,6 +77,61 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 export type AllDocumentTypes = PageDocument;
+
+/**
+ * Primary content in *Carausel → Default → Primary*
+ */
+export interface CarauselSliceDefaultPrimary {
+  /**
+   * Heading field in *Carausel → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carausel.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Price copy field in *Carausel → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carausel.default.primary.price_copy
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  price_copy: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Carausel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarauselSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CarauselSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Carausel*
+ */
+type CarauselSliceVariation = CarauselSliceDefault;
+
+/**
+ * Carausel Shared Slice
+ *
+ * - **API ID**: `carausel`
+ * - **Description**: Carausel
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarauselSlice = prismic.SharedSlice<
+  "carausel",
+  CarauselSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -280,6 +335,10 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CarauselSlice,
+      CarauselSliceDefaultPrimary,
+      CarauselSliceVariation,
+      CarauselSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
