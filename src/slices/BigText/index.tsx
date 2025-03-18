@@ -13,7 +13,7 @@ export type BigTextProps = SliceComponentProps<Content.BigTextSlice>;
 const BigText: FC<BigTextProps> = ({ slice }) => {
   return (
     <section
-      className="min-h-screen w-screen overflow-hidden bg-[#FE6334] text-[#FEE832]"
+      className="min-h-screen w-screen overflow-hidden bg-[#ff440b] text-[#FEE832]"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
