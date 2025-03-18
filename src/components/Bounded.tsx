@@ -3,7 +3,8 @@ import clsx from "clsx";
 type BoundedProps = {
   as?: React.ElementType;
   className?: string;
-  children: React.ReactNode;
+  children: React.ReactNode; // Keep children required
+  [key: string]: any; // Allow for data attributes and other props
 };
 
 export const Bounded = ({
