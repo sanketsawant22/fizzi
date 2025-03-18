@@ -2,7 +2,6 @@ import React from "react";
 import { FizziLogo } from "./FizziLogo";
 import CircleText from "./CirlceText";
 
-type Props = {};
 
 const Footer = () => {
   return (
