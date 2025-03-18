@@ -1,11 +1,11 @@
 import clsx from "clsx";
+import { HTMLAttributes } from "react";
 
 type BoundedProps = {
   as?: React.ElementType;
   className?: string;
-  children: React.ReactNode; // Keep children required
-  [key: string]: any; // Allow for data attributes and other props
-};
+  children: React.ReactNode;
+} & HTMLAttributes<HTMLElement>;
 
 export const Bounded = ({
   as: Comp = "section",
